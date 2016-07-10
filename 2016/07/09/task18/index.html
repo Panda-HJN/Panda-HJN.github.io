@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>task18 | 韩佳宁的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="代码题数组
+用 splice 实现 push、pop、shift、unshift方法
+
+push
+末尾添加一个或多个元素，并返回新的length
+12345678  var arr1 = [1,2,3,4,5,6]  var pushFunction = function(arr,val)&amp;#123;  var b = arr.splice(arr.length,0,val)  return ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="task18">
+<meta property="og:url" content="http://panda-hjn.github.io/2016/07/09/task18/index.html">
+<meta property="og:site_name" content="韩佳宁的博客">
+<meta property="og:description" content="代码题数组
+用 splice 实现 push、pop、shift、unshift方法
+
+push
+末尾添加一个或多个元素，并返回新的length
+12345678  var arr1 = [1,2,3,4,5,6]  var pushFunction = function(arr,val)&amp;#123;  var b = arr.splice(arr.length,0,val)  return ar">
+<meta property="og:updated_time" content="2016-07-10T15:21:52.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="task18">
+<meta name="twitter:description" content="代码题数组
+用 splice 实现 push、pop、shift、unshift方法
+
+push
+末尾添加一个或多个元素，并返回新的length
+12345678  var arr1 = [1,2,3,4,5,6]  var pushFunction = function(arr,val)&amp;#123;  var b = arr.splice(arr.length,0,val)  return ar">
+  
+    <link rel="alternate" href="/atom.xml" title="韩佳宁的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">韩佳宁的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://panda-hjn.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-task18" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/task18/" class="article-date">
+  <time datetime="2016-07-08T18:35:22.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      task18
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="代码题"><a href="#代码题" class="headerlink" title="代码题"></a>代码题</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>用 splice 实现 push、pop、shift、unshift方法</li>
+</ul>
+<p>push</p>
+<p>末尾添加一个或多个元素，并返回新的length</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  <span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line">  <span class="keyword">var</span> pushFunction = <span class="function"><span class="keyword">function</span>(<span class="params">arr,val</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> b = arr.splice(arr.length,<span class="number">0</span>,val)</div><div class="line">  <span class="keyword">return</span> arr.length</div><div class="line">&#125;</div><div class="line">  <span class="built_in">console</span>.log(pushFunction(arr1,<span class="number">7</span>))<span class="comment">//7</span></div><div class="line">  <span class="built_in">console</span>.log(arr1)                <span class="comment">//[1, 2, 3, 4, 5, 6, 7]</span></div></pre></td></tr></table></figure>
+<p>pop</p>
+<p>删除最后一个元素,把length减1,返回所删除的元素的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> popFunction = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> b = arr.splice(arr.length<span class="number">-1</span>,<span class="number">1</span>)</div><div class="line">  <span class="keyword">return</span> b</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</div><div class="line"><span class="built_in">console</span>.log(popFunction(arr1)) <span class="comment">// [8]</span></div><div class="line"><span class="built_in">console</span>.log(arr1);             <span class="comment">// [1,2,3,4,5,6,7]</span></div></pre></td></tr></table></figure>
+<p>shift</p>
+<p>删除第一个元素,返回删除的元素的值(若已为空，则不改变数组,返回undefined)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"></div><div class="line"><span class="keyword">var</span> shiftFunction = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = arr.splice(<span class="number">0</span>,<span class="number">1</span>)</div><div class="line"> <span class="keyword">if</span> (arr.length ==<span class="number">0</span>) &#123;</div><div class="line">     <span class="keyword">return</span> <span class="literal">undefined</span></div><div class="line"> &#125;</div><div class="line">    <span class="keyword">return</span> a</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(shiftFunction(arr1))<span class="comment">// [0]</span></div><div class="line"><span class="built_in">console</span>.log(arr1)               <span class="comment">// [1, 2]</span></div><div class="line"><span class="built_in">console</span>.log(shiftFunction(arr1))<span class="comment">// [1]</span></div><div class="line"><span class="built_in">console</span>.log(arr1)               <span class="comment">// [2]</span></div><div class="line"><span class="built_in">console</span>.log(shiftFunction(arr1))<span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(arr1)               <span class="comment">// []</span></div></pre></td></tr></table></figure>
+<p>unshift</p>
+<p>数组的开头添加一个或多个元素，并返回新的length</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line"></div><div class="line"><span class="keyword">var</span> unshiftFunction = <span class="function"><span class="keyword">function</span>(<span class="params">arr,val</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = arr.splice(<span class="number">0</span>,<span class="number">0</span>,val)</div><div class="line">  <span class="keyword">return</span> arr.length</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(unshiftFunction(arr1,<span class="number">0</span>)) <span class="comment">// 7</span></div><div class="line"><span class="built_in">console</span>.log(arr1)                    <span class="comment">// [0, 1, 2, 3, 4, 5, 6]</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用数组拼接出如下字符串</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> prod = &#123;</div><div class="line">    name: <span class="string">'女装'</span>,</div><div class="line">    styles: [<span class="string">'短款'</span>, <span class="string">'冬季'</span>, <span class="string">'春装'</span>]</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTpl</span>(<span class="params">data</span>)</span>&#123;</div><div class="line"><span class="comment">//todo...</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> result = getTplStr(prod);  <span class="comment">//result为下面的字符串</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;dl class=&quot;product&quot;&gt;</div><div class="line">    &lt;dt&gt;女装&lt;/dt&gt;</div><div class="line">    &lt;dd&gt;短款&lt;/dd&gt;</div><div class="line">    &lt;dd&gt;冬季&lt;/dd&gt;</div><div class="line">    &lt;dd&gt;春装&lt;/dd&gt;</div><div class="line">&lt;/dl&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> prod = &#123;</div><div class="line">    name: <span class="string">'女装'</span>,</div><div class="line">    styles: [<span class="string">'短款'</span>, <span class="string">'冬季'</span>, <span class="string">'春装'</span>]</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTpl</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> tpl = <span class="string">'&lt;dl class ="product"&gt;\n'</span>;  <span class="comment">//注意 用 \n 换行</span></div><div class="line">  tpl = tpl +<span class="string">'&lt;dt&gt;'</span> + data.name + <span class="string">'&lt;/dt&gt;\n'</span>;<span class="comment">//把name中的内容转换成 字符串 并连接进tpl</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; prod.styles.length; i++) &#123;<span class="comment">//遍历 style</span></div><div class="line">    tpl = tpl +<span class="string">'&lt;dd&gt;'</span>+data.styles[i] + <span class="string">'&lt;/dd&gt; \n'</span>;</div><div class="line">  &#125;</div><div class="line">  tpl = tpl + <span class="string">'&lt;/dl&gt;'</span>;</div><div class="line">  <span class="keyword">return</span> tpl;</div><div class="line">&#125;</div><div class="line">  <span class="keyword">var</span> result = getTpl(prod)</div><div class="line">  <span class="built_in">console</span>.log(result)</div><div class="line"> <span class="comment">//"&lt;dl class =\"product\"&gt;</span></div><div class="line"> <span class="comment">//&lt;dt&gt;女装&lt;/dt&gt;</span></div><div class="line"> <span class="comment">//&lt;dd&gt;短款&lt;/dd&gt;</span></div><div class="line"> <span class="comment">//&lt;dd&gt;冬季&lt;/dd&gt;</span></div><div class="line"> <span class="comment">//&lt;dd&gt;春装&lt;/dd&gt;</span></div><div class="line"> <span class="comment">//&lt;/dl&gt;"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>写一个find函数，实现下面的功能</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [ <span class="string">"test"</span>, <span class="number">2</span>, <span class="number">1.5</span>, <span class="literal">false</span> ]</div><div class="line">find(arr, <span class="string">"test"</span>) <span class="comment">// 0</span></div><div class="line">find(arr, <span class="number">2</span>) <span class="comment">// 1</span></div><div class="line">find(arr, <span class="number">0</span>) <span class="comment">// -1</span></div></pre></td></tr></table></figure>
+<p>功能:<br>传入 数组的某一元素,返回这个元素的键值,<br>如果传入的不是该数组的元素,返回-1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [ <span class="string">"test"</span>, <span class="number">2</span>, <span class="number">1.5</span>, <span class="literal">false</span> ]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">arr, val</span>)</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;<span class="comment">// i 从0开始计数</span></div><div class="line">            <span class="keyword">if</span>(arr[i] === val)&#123;         <span class="comment">//当 arr[i] 与 要查询的 val相等时 返回i</span></div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">          <span class="keyword">return</span> <span class="number">-1</span>;                    <span class="comment">//要查询的  val 不是 数组内的元素返回 -1</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    find(arr, <span class="string">"test"</span>) <span class="comment">// 0</span></div><div class="line">    find(arr, <span class="number">2</span>)      <span class="comment">// 1</span></div><div class="line">    find(arr, <span class="number">0</span>)      <span class="comment">// -1</span></div><div class="line">    find(arr, <span class="number">12</span>)     <span class="comment">//-1</span></div></pre></td></tr></table></figure>
+<ul>
+<li>写一个函数filterNumeric，实现如下功能</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="string">"b"</span>, <span class="number">2</span>];</div><div class="line">newarr = filterNumeric(arr);  <span class="comment">//   [1,3,5,2]</span></div></pre></td></tr></table></figure>
+<p>功能:<br>把传入的数组内的数值取出,放入一个新的数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">filterNumeric</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> = newarr[];                       <span class="comment">//声明一个空数组 newarr</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;<span class="comment">//遍历 arr</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> arr[i] === <span class="string">'number'</span>) &#123;  <span class="comment">//判断 arr[i] 是否是 数值</span></div><div class="line">      newarr.push(arr[i]);<span class="comment">// 如果arr[i]是数值 就把它用push()装填进 newarr</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> newarr;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(filterNumber(arr)) <span class="comment">//[2, 1.5]</span></div></pre></td></tr></table></figure>
+<ul>
+<li>对象obj有个className属性，里面的值为的是空格分割的字符串(和html元素的class特性类似)，写addClass、removeClass函数，有如下功能：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  className: <span class="string">'open menu'</span></div><div class="line">&#125;</div><div class="line">addClass(obj, <span class="string">'new'</span>) <span class="comment">// obj.className='open menu new'</span></div><div class="line">addClass(obj, <span class="string">'open'</span>)  <span class="comment">// 因为open已经存在，此操作无任何办法</span></div><div class="line">addClass(obj, <span class="string">'me'</span>) <span class="comment">// obj.className='open menu new me'</span></div><div class="line"><span class="built_in">console</span>.log(obj.className)  <span class="comment">// "open menu new me"</span></div><div class="line"></div><div class="line">removeClass(obj, <span class="string">'open'</span>) <span class="comment">// obj.className='menu new me'</span></div><div class="line">removeClass(obj, <span class="string">'blabla'</span>)  <span class="comment">// 不变</span></div></pre></td></tr></table></figure>
+<h4 id="addClass-思路"><a href="#addClass-思路" class="headerlink" title="addClass 思路"></a>addClass 思路</h4><p> 1.把 className 里的字符串 转换成数组 放入 classArray 内<br> 2.判断数组 classArray 中是否存在与 cla 相同的元素<br> 3.存在则直接 break 什么也不做,不存在则继续执行下面的操作步骤<br> 4.用push()把 ela 作为新元素加入classArray  把新的 classArray 转换成字符串  覆盖obj.className<br> 4.或者直接将 className 与 ‘ ela’ 进行拼接,赋给obj.className</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">obj,cla</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> classArray = [];</div><div class="line">  classArray = obj.className.split(<span class="string">' '</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; classArray.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (cla === classArray[i]) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'元素 '</span> + cla +<span class="string">' 已存在'</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  classArray.push(cla);</div><div class="line">  obj.className = classArray.join(<span class="string">' '</span>);<span class="comment">// 这两行也可写成 obj.className = obj.className + ' ' + cla;</span></div><div class="line">  <span class="keyword">return</span> <span class="string">'元素 '</span> + cla +<span class="string">' 已添加'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;className: <span class="string">'open menu'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.className);   <span class="comment">//"open menu"</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(addClass(obj,<span class="string">'open'</span>));  <span class="comment">//"元素 open 已存在"</span></div><div class="line"><span class="built_in">console</span>.log(obj.className);         <span class="comment">//"open menu"</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(addClass(obj,<span class="string">'header'</span>));<span class="comment">//"元素 header 已添加"</span></div><div class="line"><span class="built_in">console</span>.log(obj.className);         <span class="comment">//"open menu header"</span></div></pre></td></tr></table></figure>
+<h4 id="removeClass思路"><a href="#removeClass思路" class="headerlink" title="removeClass思路"></a>removeClass思路</h4><p>  1.把 className 里的字符串 转换成数组 放入 classArray 内<br>  2.判断数组 classArray 中是否存在与 cla 相同的元素<br>  3.不存在则直接 break 什么也不做,存在则输出该元素键值i 并继续执行下面的操作步骤<br>  4.用splic(classArray,i)删除 该元素,把新的 classArray 转换成字符串  覆盖obj.className</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">obj,cla</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> classArray = [];</div><div class="line">  classArray = obj.className.split(<span class="string">' '</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; classArray.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (cla === classArray[i]) &#123;</div><div class="line">        classArray.splice(i,<span class="number">1</span>);</div><div class="line">        obj.className =classArray.join(<span class="string">' '</span>);</div><div class="line">      <span class="keyword">return</span> cla + <span class="string">'已被删除'</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="string">'元素 '</span> + cla +<span class="string">'不存在'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  className: <span class="string">'open menu'</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj.className);             <span class="comment">//"open menu"</span></div><div class="line"><span class="built_in">console</span>.log(removeClass(obj,<span class="string">'open'</span>));   <span class="comment">//"open已被删除"</span></div><div class="line"><span class="built_in">console</span>.log(obj.className);             <span class="comment">//"menu"</span></div><div class="line"><span class="built_in">console</span>.log(removeClass(obj,<span class="string">'header'</span>)); <span class="comment">//"元素 header 不存在"</span></div><div class="line"><span class="built_in">console</span>.log(obj.className);             <span class="comment">//"menu"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>写一个camelize函数，把my-short-string形式的字符串转化成myShortString形式的字符串，如</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">camelize(<span class="string">"background-color"</span>) == <span class="string">'backgroundColor'</span></div><div class="line">camelize(<span class="string">"list-style-image"</span>) == <span class="string">'listStyleImage'</span></div></pre></td></tr></table></figure>
+<p>代码如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">camelize</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str = str.split(<span class="string">'-'</span>).join(<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(camelize(<span class="string">"background-color"</span>) );<span class="comment">//"backgroundcolor"</span></div><div class="line"><span class="built_in">console</span>.log(camelize(<span class="string">"list-style-image"</span>) );<span class="comment">//"liststyleimage"</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>如下代码输出什么？为什么?<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="string">"a"</span>, <span class="string">"b"</span>];</div><div class="line">arr.push( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="built_in">console</span>.log(<span class="string">'hello hunger valley'</span>)) &#125; );</div><div class="line">arr[arr.length<span class="number">-1</span>]()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出为 : // “hello hunger valley”</p>
+<p>分析如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="string">"a"</span>, <span class="string">"b"</span>];<span class="comment">//建立一个数组</span></div><div class="line">arr.push( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="built_in">console</span>.log(<span class="string">'hello hunger valley'</span>)) &#125; );</div><div class="line"><span class="comment">//在数组末尾添加一个元素,这个元素是个函数</span></div><div class="line">arr[arr.length<span class="number">-1</span>]()</div></pre></td></tr></table></figure>
+<p>对于<code>arr[arr.length-1]()</code><br>可以理解为<br><code>arr[2]()</code></p>
+<p>即 <code>function() { alert(console.log(&#39;hello hunger valley&#39;)) }()</code><br>所以输出结果为 “hello hunger valley”</p>
+<ul>
+<li>写一个函数filterNumericInPlace，过滤数组中的数字，删除非数字</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">"b"</span>, <span class="number">2</span>];</div><div class="line"><span class="comment">//对原数组进行操作，不需要返回值</span></div><div class="line">filterNumericInPlace(arr);</div><div class="line"><span class="built_in">console</span>.log(arr)  <span class="comment">// [1,3,4,5,2]</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">filterNumericInPlace</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> arr[i] !== <span class="string">'number'</span>) &#123;</div><div class="line">      arr.splice(i,<span class="number">1</span>);</div><div class="line">      i--; <span class="comment">//执行一次删减元素的操作后 arr.length发生了变化</span></div><div class="line">    &#125;      <span class="comment">//相应的i也要跟着做出改变</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">"b"</span>, <span class="number">2</span>];</div><div class="line">filterNumericInPlace(arr);</div><div class="line"><span class="built_in">console</span>.log(arr)  <span class="comment">// [1,3,4,5,2]</span></div></pre></td></tr></table></figure>
+<ul>
+<li>写一个ageSort函数实现如下功能</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> john = &#123; name: <span class="string">"John Smith"</span>, age: <span class="number">23</span> &#125;</div><div class="line"><span class="keyword">var</span> mary = &#123; name: <span class="string">"Mary Key"</span>, age: <span class="number">18</span> &#125;</div><div class="line"><span class="keyword">var</span> bob = &#123; name: <span class="string">"Bob small"</span>, age: <span class="number">6</span> &#125;</div><div class="line"><span class="keyword">var</span> people = [ john, mary, bob ]</div><div class="line">ageSort(people) <span class="comment">// [ bob, mary, john ]</span></div></pre></td></tr></table></figure>
+<p>功能:<br>根据people[i].age 对people内的对象排序</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ageSort</span>(<span class="params">people</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a;</div><div class="line">  <span class="keyword">var</span> b;</div><div class="line">  people.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> a.age - b.age;</div><div class="line">    <span class="comment">// function(a,b)小于0,a排b之前;</span></div><div class="line">    <span class="comment">//等于0,a和b位置不变;</span></div><div class="line">    <span class="comment">//大于0 b在a之前</span></div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> people;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> john = &#123; name: <span class="string">"John Smith"</span>, age: <span class="number">23</span> &#125;;</div><div class="line"><span class="keyword">var</span> mary = &#123; name: <span class="string">"Mary Key"</span>, age: <span class="number">18</span> &#125;;</div><div class="line"><span class="keyword">var</span> bob = &#123; name: <span class="string">"Bob small"</span>, age: <span class="number">6</span> &#125;;</div><div class="line"><span class="keyword">var</span> people = [ john, mary, bob ];</div><div class="line"><span class="built_in">console</span>.log(ageSort(people));</div><div class="line"><span class="comment">/*</span></div><div class="line">[</div><div class="line">[object Object] &#123;</div><div class="line">  age: 6,</div><div class="line">  name: "Bob small"</div><div class="line">&#125;,</div><div class="line">[object Object] &#123;</div><div class="line">  age: 18,</div><div class="line">  name: "Mary Key"</div><div class="line">&#125;,</div><div class="line"> [object Object] &#123;</div><div class="line">  age: 23,</div><div class="line">  name: "John Smith"</div><div class="line">&#125;</div><div class="line">]</div><div class="line">*/</div></pre></td></tr></table></figure>
+<ul>
+<li>写一个filter(arr, func) 函数用于过滤数组，接受两个参数，第一个是要处理的数组，第二个参数是回调函数(回调函数遍历接受每一个数组元素，当函数返回true时保留该元素，否则删除该元素)。实现如下功能：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumeric</span> (<span class="params">el</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> el === <span class="string">'number'</span>;</div><div class="line">&#125;</div><div class="line">arr = [<span class="string">"a"</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="literal">true</span>, <span class="number">-1</span>, <span class="number">2</span>, <span class="string">"b"</span>]</div><div class="line"></div><div class="line">arr = filter(arr, isNumeric) ; <span class="comment">// arr = [3,4,-1, 2],  过滤出数字</span></div><div class="line">arr = filter(arr, <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123; <span class="keyword">return</span> val &gt; <span class="number">0</span> &#125;);  <span class="comment">// arr = [2] 过滤出大于0的整数</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumeric</span>(<span class="params">el</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> el === <span class="string">'number'</span>;<span class="comment">//判断el是否是数值</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">arr,num</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (!num(arr[i])) &#123; <span class="comment">// 根据回调函数的结果给出true或者false</span></div><div class="line">      arr.splice(i,<span class="number">1</span>);  <span class="comment">// 删掉arr内不是数值的元素</span></div><div class="line">      i--;              <span class="comment">// 并相应的调整i</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> arr; <span class="comment">//返回修改后的arr</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="literal">true</span>, <span class="number">-1</span>, <span class="number">2</span>, <span class="string">"b"</span>];</div><div class="line">arr = filter(arr,isNumeric);                    <span class="comment">//过滤出 不是数值的元素</span></div><div class="line"><span class="built_in">console</span>.log(arr);                               <span class="comment">//[3, 4, -1, 2]</span></div><div class="line">arr = filter(arr,<span class="function"><span class="keyword">function</span> (<span class="params">val</span>)</span>&#123;<span class="keyword">return</span> val &gt;<span class="number">0</span>&#125;);<span class="comment">//过滤出小于0的元素</span></div><div class="line"><span class="built_in">console</span>.log(arr);                               <span class="comment">//[3, 4, 2]</span></div><div class="line">arr = filter(arr,<span class="function"><span class="keyword">function</span> (<span class="params">val</span>)</span>&#123;<span class="keyword">return</span> val%<span class="number">2</span> == <span class="number">0</span>&#125;);<span class="comment">//过滤出奇数元素的元素</span></div><div class="line"><span class="built_in">console</span>.log(arr);                                   <span class="comment">//[4, 2]</span></div></pre></td></tr></table></figure>
+<p>##　字符串</p>
+<ul>
+<li>写一个 ucFirst函数，返回第一个字母为大写的字符</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ucFirst(<span class="string">"hunger"</span>) == <span class="string">"Hunger"</span></div></pre></td></tr></table></figure>
+<p>需求:<br>1.把字符串第一个字母改为大写<br>2.如果遇到空字符串或者传入的不是字符串,得报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ucFirst</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> str === <span class="string">'string'</span>&amp;&amp;str !==<span class="string">''</span>) &#123;  <span class="comment">// str 是字符串,且不是空字符串</span></div><div class="line">    <span class="keyword">var</span> firstLetter = str.charAt(<span class="number">0</span>).toUpperCase();</div><div class="line">    str = firstLetter + str.substring(<span class="number">1</span>,str.length);</div><div class="line">    <span class="keyword">return</span> str;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(ucFirst(<span class="string">'panda'</span>)); <span class="comment">//"Panda"</span></div><div class="line"><span class="built_in">console</span>.log(ucFirst(<span class="string">''</span>));      <span class="comment">// false 空字符串 报错</span></div><div class="line"><span class="built_in">console</span>.log(ucFirst(<span class="number">2016</span>));    <span class="comment">// false 非字符串 报错</span></div></pre></td></tr></table></figure>
+<ul>
+<li>写一个函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上…，如</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">truncate(<span class="string">"hello, this is hunger valley,"</span>, <span class="number">10</span>) == <span class="string">"hello, thi..."</span>;</div><div class="line">truncate(<span class="string">"hello world"</span>, <span class="number">20</span>) == <span class="string">"hello world"</span>;</div></pre></td></tr></table></figure>
+<p>分析</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">truncate</span>(<span class="params">str,maxlength</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (str.length&gt;maxlength) &#123;         <span class="comment">//先判断str的长度是否大于maxlength</span></div><div class="line">    str = str.substring(<span class="number">0</span>,maxlength); <span class="comment">//提取0到maxlength之间的字符</span></div><div class="line">    str = str + <span class="string">'...'</span>                 <span class="comment">//把0到maxlength之间的字符和'...'拼接</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> str;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(truncate(<span class="string">"hello, this is hunger valley,"</span>, <span class="number">10</span>));</div><div class="line"><span class="built_in">console</span>.log(truncate(<span class="string">"hello world"</span>, <span class="number">20</span>));</div><div class="line"><span class="built_in">console</span>.log(truncate(<span class="string">"早起的虫儿被鸟吃"</span>, <span class="number">6</span>));</div></pre></td></tr></table></figure>
+<h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><ul>
+<li>写一个函数limit2，保留数字小数点后两位，四舍五入， 如:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">3.456</span></div><div class="line">limit2( num1 );  <span class="comment">//3.46</span></div><div class="line">limit2( <span class="number">2.42</span> );    <span class="comment">//2.42</span></div></pre></td></tr></table></figure>
+<p>需要用到Math对象的round方法<br>保留2位小数就先 “乘100 再/100 “</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">limit2</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num = <span class="built_in">Math</span>.round(num*<span class="number">100</span>)/<span class="number">100</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(limit2(<span class="number">3.454</span>));<span class="comment">//3.45</span></div><div class="line"><span class="built_in">console</span>.log(limit2(<span class="number">3.455</span>));<span class="comment">//3.46</span></div></pre></td></tr></table></figure>
+<ul>
+<li>写一个函数，获取从min到max之间的随机数，包括min不包括max</li>
+</ul>
+<p>random()方法提供的是0~1之间的伪随机数 需要<em>(max-min)<br>要注意的是random()的结果大于<em>*等于</em></em>0,小于1<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ranNum</span>(<span class="params">min,max</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num;</div><div class="line">  <span class="keyword">return</span> num = <span class="built_in">Math</span>.random()*(max-min) + min;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(ranNum(<span class="number">1</span>,<span class="number">100</span>));</div><div class="line"><span class="built_in">console</span>.log(ranNum(<span class="number">200</span>,<span class="number">15000</span>));</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>写一个函数，获取从min都max之间的随机整数，包括min包括max</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ranNum</span>(<span class="params">min,max</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num;</div><div class="line">  <span class="keyword">return</span> num = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*(max-min) + min);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(ranNum(<span class="number">1</span>,<span class="number">100</span>));</div><div class="line"><span class="built_in">console</span>.log(ranNum(<span class="number">200</span>,<span class="number">15000</span>));</div></pre></td></tr></table></figure>
+</li>
+<li><p>写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ranArr</span>(<span class="params">len,max,min</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> arr = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;len; i++) &#123;</div><div class="line">      arr.push(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*(max-min) + min));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(ranArr(<span class="number">8</span>,<span class="number">88</span>,<span class="number">95</span>));<span class="comment">//[92, 92, 92, 93, 93, 88, 93, 89]</span></div><div class="line">                             <span class="comment">//随机的 不唯一</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://panda-hjn.github.io/2016/07/09/task18/" data-id="ciqgr0dlm0004g4elvcm8bye9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-代码题/">javascript  代码题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/10/array/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数组
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-代码题/">javascript  代码题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-代码题/" style="font-size: 10px;">javascript  代码题</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/10/array/">数组</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/09/task18/">task18</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/01/task17/">task17</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 韩佳宁<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
