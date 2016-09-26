@@ -83,11 +83,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h3 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h3>
+        <hr>
+<h1 id="AJAX-Asynchronous-Javascript-And-XML"><a href="#AJAX-Asynchronous-Javascript-And-XML" class="headerlink" title="AJAX(Asynchronous Javascript And XML)"></a>AJAX(Asynchronous Javascript And XML)</h1><p>在AJAX技术出现之前,如果想局部的更新页面信息,必须要刷新整个页面.递交表单,查询信息…这些操作在那个时代的体验比较糟糕.<br>AJAX技术的出现解决了这个问题.通过与服务器进行少量数据交互,AJAX实现了异步更新.</p>
+<p>具体来说,AJAX包括以下步骤</p>
+<ol>
+<li>创建AJAX对象</li>
+<li>发出HTTP请求</li>
+<li>接手服务器传回的数据</li>
+<li>更新网页数据</li>
+</ol>
+<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><p><code>XMLHttpRequest</code>对象用于在浏览器和服务器之间传递数据.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">ajax.open(<span class="string">'GET'</span>,<span class="string">'http://pandahjn.applinzi.com/nothing.php'</span>,<span class="literal">true</span>)</div><div class="line"><span class="string">``</span><span class="string">`   </span></div><div class="line">这段代码向指定的服务器发出`GET<span class="string">`请求.</span></div><div class="line">然后AJAX指定回调函数,监听`XMLHttpRequest.readyState<span class="string">`来获取通信状态的变化情况</span></div><div class="line"></div><div class="line">虽然名为"异步的XML",但却可以传输多种数据.也支持其他协议,比如FTP      </div><div class="line">`<span class="built_in">JSON</span><span class="string">`是目前事实上的主流的数据交互格式.   </span></div><div class="line"></div><div class="line">这是一个典型的XMLHttpRequest用法</div><div class="line">`<span class="string">``</span>js</div><div class="line"><span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line"><span class="comment">//建立 XMLHttpRequest对象</span></div><div class="line"></div><div class="line">ajax.onreadystatechang = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (ajax.readyState === <span class="number">4</span> &amp;&amp; ajax.status == <span class="number">200</span>) &#123;<span class="comment">//ajax通信状态值为4且http状态码为200时方为通信成功</span></div><div class="line">    <span class="built_in">console</span>.log(ajax.responseText)</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.error(ajax.statusText)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ajax.open(<span class="string">'GET'</span>,<span class="string">'/nothing.php'</span>,<span class="literal">true</span>)</div><div class="line"><span class="comment">//指定http请求方式,请求的地址,是否异步</span></div><div class="line"></div><div class="line">ajax.send()</div><div class="line"><span class="comment">//发送http请求</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>readyState<br><code>readyState</code>是一个表示<code>XMLHttpRequest</code>请求当前所处状态的只读属性<br>通信过程中,每当状态发生一次变化,<code>readyState</code>属性的值就会发生改变.<code>readyState</code>的值没变化一次,都会触发<code>readyStateChange</code>事件<ul>
+<li>0: 请求未初始化</li>
+<li>1: 服务器连接已建立</li>
+<li>2: 请求已接收</li>
+<li>3: 请求处理中</li>
+<li>4: 请求已完成，且响应已就绪</li>
+</ul>
+</li>
+<li><p>onreadystatechang<br><code>onreadystatechang</code>属性指向一个回调函数,当<code>readyStateChange</code>事件发生时,所指向的回调函数就会被调用,与此同时<code>readyState</code>属性也会发生改变.<br>此外,使用<code>abort()</code>方法,终止XMLHttpRequest请求,<code>onreadystatechang</code>指向的回调函数也会被调用   </p>
+</li>
+<li><p>response<br><code>response</code>是一个用于返回接收到的数据的只读属性.<br>它的类型可以是<code>ArrayBuffer</code>,<code>Blob</code>,<code>Document</code>,<code>JSON</code>或者是一个字符串.<br>其类型由<code>XMLHttpRequest.responseType</code>的值决定<br>如果本次请求失败或者数据不完整,该属性值为<code>null</code>.</p>
+</li>
+<li>responseType<br><code>responseType</code>属性用来指定服务器返回类型<ul>
+<li><code>&quot;&quot;</code>: 字符串(默认值)</li>
+<li><code>arraybuffer</code>:    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer" target="_blank" rel="external">ArrayBuffer对象</a></li>
+<li><code>blob</code>: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="external">Blob对象</a>.适合读取二进制数据,比如图片文件</li>
+<li><code>document</code>:    Documentd对象</li>
+<li><code>json</code>: JSON对象</li>
+<li><code>text</code>: 字符串.适合大多数情况,直接处理文本比较方便</li>
+</ul>
+</li>
+<li>responseText<br><code>responseText</code>是一个返回从服务器接受的字符串的只读属性<br>如果本次请求失败或者数据不完整,该属性就为<code>null</code><br>如果服务器返回的数据格式是<code>JSON</code>就可以使用<code>responseText</code>属性   </li>
+<li>responseXML<br><code>responseXML</code></li>
+</ul>
+<hr>
+<p>以下待施工</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/09/22/Ajax/" data-id="citeio4j40000zwels8wm9795" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/09/22/Ajax/" data-id="citjytuz50000rwel1btxbwbp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -324,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/27/正则表达式/" data-id="citeio4l0000dzwelozv53bcj" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/27/正则表达式/" data-id="citjytv19000drwelofs6fgzs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
@@ -412,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/14/task19 - 副本/" data-id="citeio4kh000bzwelpkmk0e7x" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/14/task19 - 副本/" data-id="citjytv0t000brwelmbtqto40" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date/">Date</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码题/">代码题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/引用类型/">引用类型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深拷贝/">深拷贝</a></li></ul>
@@ -500,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/14/task19/" data-id="citeio4kv000czwel04y0s5i0" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/14/task19/" data-id="citjytv15000crwelqfkk98uj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date/">Date</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码题/">代码题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/引用类型/">引用类型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深拷贝/">深拷贝</a></li></ul>
@@ -638,7 +675,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/10/array/" data-id="citeio4jq0003zwelgk7qigqz" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/10/array/" data-id="citjytv010003rwelidehajb9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -733,7 +770,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/09/Date/" data-id="citeio4je0001zwelep6jwcfh" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/09/Date/" data-id="citjytuzh0001rwelqvy66x0q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date/">Date</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
@@ -873,7 +910,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/09/task18/" data-id="citeio4kc0008zwelb6zd24q3" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/09/task18/" data-id="citjytv0l0008rwelt708un6f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-代码题/">javascript  代码题</a></li></ul>
@@ -920,7 +957,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/08/hello-world/" data-id="citeio4k60006zwele6yae5fz" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/08/hello-world/" data-id="citjytv050004rwel5154v8i7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -996,7 +1033,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/01/task17/" data-id="citeio4jt0004zwelvhklc6rt" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/07/01/task17/" data-id="citjytv0d0006rwelyg0037ws" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
