@@ -3,21 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 韩佳宁的博客</title>
+  <title>CSS复习 | 韩佳宁的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="雪碧图 background-position X Y
+图片剧中 的父级元素添加 text-align：center；
+外边距合并  较大者 兄弟外边距合并
+父子合并 父亲 没有 padding 或者 边框 会产生
+相邻元素会合并 不相邻也可能（没有边界线）
+边界线 可以是 padding 可以是 边框 也可以是 bfc形成的空间
+对于父子合并 父亲若是bfc 可以避免父子合并
+子元素没事不要加">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://panda-hjn.github.io/2016/07/08/hello-world/index.html">
+<meta property="og:title" content="CSS复习">
+<meta property="og:url" content="http://panda-hjn.github.io/2016/10/14/css/index.html">
 <meta property="og:site_name" content="韩佳宁的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-15T12:44:54.255Z">
+<meta property="og:description" content="雪碧图 background-position X Y
+图片剧中 的父级元素添加 text-align：center；
+外边距合并  较大者 兄弟外边距合并
+父子合并 父亲 没有 padding 或者 边框 会产生
+相邻元素会合并 不相邻也可能（没有边界线）
+边界线 可以是 padding 可以是 边框 也可以是 bfc形成的空间
+对于父子合并 父亲若是bfc 可以避免父子合并
+子元素没事不要加">
+<meta property="og:updated_time" content="2016-10-21T20:09:23.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="CSS复习">
+<meta name="twitter:description" content="雪碧图 background-position X Y
+图片剧中 的父级元素添加 text-align：center；
+外边距合并  较大者 兄弟外边距合并
+父子合并 父亲 没有 padding 或者 边框 会产生
+相邻元素会合并 不相邻也可能（没有边界线）
+边界线 可以是 padding 可以是 边框 也可以是 bfc形成的空间
+对于父子合并 父亲若是bfc 可以避免父子合并
+子元素没事不要加">
   
     <link rel="alternate" href="/atom.xml" title="韩佳宁的博客" type="application/atom+xml">
   
@@ -66,10 +84,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-css" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/08/hello-world/" class="article-date">
-  <time datetime="2016-07-08T07:27:30.515Z" itemprop="datePublished">2016-07-08</time>
+    <a href="/2016/10/14/css/" class="article-date">
+  <time datetime="2016-10-14T02:25:34.000Z" itemprop="datePublished">2016-10-14</time>
 </a>
     
   </div>
@@ -80,7 +98,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      CSS复习
     </h1>
   
 
@@ -88,41 +106,59 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <ul>
+<li>雪碧图 background-position X Y</li>
+<li>图片剧中 的父级元素添加 text-align：center；</li>
+<li>外边距合并  较大者 兄弟外边距合并</li>
+<li>父子合并 父亲 没有 padding 或者 边框 会产生</li>
+<li>相邻元素会合并 不相邻也可能（没有边界线）</li>
+<li>边界线 可以是 padding 可以是 边框 也可以是 bfc形成的空间</li>
+<li>对于父子合并 父亲若是bfc 可以避免父子合并</li>
+<li>子元素没事不要加宽度百分之百 不然容易被自身margin干扰，最后出现横向滚动条</li>
+<li>vertical-align: middle要给你所有想剧中的元素加上才行</li>
+<li>px指的是像素,值是固定的，使用频率最</li>
+<li>em和rem是相的长度单位，em是相对于父元素的px的倍数</li>
+<li>rem相对于根元素的px，多用于移动端</li>
+<li><form> 元素 表示了文档中的一个区域，这个区域包含有交互控制元件，用来向web服务器提交信息。</form></li>
+<li><form method="传送方式" action="服务器文件"></form></li>
+<li>absolute 相对于自己有position属性的父元素定位 脱离文档流水</li>
+<li>relative 相对于自己的原始位置定位(依旧占据着文档流中的空间)</li>
+<li>fixed 脱离文档流 相对于浏览器窗口定位</li>
+<li>z-index仅能在定位元素上奏效</li>
+<li>相同z-index按文档流顺序，后面的覆盖前面的</li>
+<li>固定宽高的元素垂直水平居中 绝对定位 top 50left 50 margin-left ：-50% margin:-50%</li>
+<li>BFC(Block formatting context)直译为”块级格式化上下文”。<br>一个独立的渲染区域 内部子元素再怎么折腾,都不会影响外部的元素。<br>浮动元素 overflow：auto,scroll或hidden</li>
+<li>overflow处理内容溢出元素框<br>默认值visible溢出盒子的内容都被显示(溢出内容会覆盖到其他元素)<br>hidden 内容会被修剪<br>scroll 元素无论内容是否 溢出,都会显示滚动条<br>auto则会根据具体情况来添加或者不添加</li>
+<li>overflow值为auto或者hidden时,父元素成为了一个BFC空间</li>
+<li>负边距三栏布局 排列顺序为 中间栏,左边栏 ,右边栏 （SEO）<br>中间栏两层嵌套，外层浮动，中间内容，左右足够margin<br>俩侧边定款左浮动<br>左栏 margin-left -100%（整个页面宽度的负数 让其浮上去）<br>右边栏 margin-left -自身宽度（为了浮上去）</li>
+<li>左右浮动三栏布局 左右中，左左浮动 右右浮动 中间剧中</li>
+<li>圣杯布局 中 左 右 原理与负边距三兰类似<br>父元素的左右设置padding(需要大于等于侧边栏定宽)</li>
+<li>双飞翼 搞的是margin</li>
+<li><p>中间栏想要给左边的left和右边right都让出一定空间<br>只有两种方式<br>一种是padding：0 220px;<br>或者是margin：0 220px;</p>
+<p>这两条路线，<br>如果选择用padding给两侧留出空间，那就是圣杯<br>如果用margin的方式，最后的结果就是双飞翼</p>
+<p>这两种布局作为主要内容的中间栏放在前面,优先渲染显示<br>这两种布局中,三栏都必须都放置在一个BFC空间中,不然因为浮动元素高度塌陷,会影响到header footer 的位置  </p>
+</li>
+<li></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://panda-hjn.github.io/2016/07/08/hello-world/" data-id="ciuk7n0vk000444eloy4ro07f" class="article-share-link">Share</a>
+      <a data-url="http://panda-hjn.github.io/2016/10/14/css/" data-id="ciuk7n0w0000644elaxweupab" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/复习/">复习</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/07/09/task18/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          task18
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/01/task17/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/09/22/Ajax/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">task17</div>
+      <div class="article-nav-title">Ajax</div>
     </a>
   
 </nav>
