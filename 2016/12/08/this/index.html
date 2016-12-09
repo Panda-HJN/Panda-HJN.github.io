@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="JavaScript,this," />
 
 
 
@@ -84,40 +84,16 @@
 
 
 
-<meta name="description" content="AJAX(Asynchronous Javascript And XML)在AJAX技术出现之前,如果想局部的更新页面信息,必须要刷新整个页面.递交表单,查询信息…这些操作在那个时代的体验比较糟糕.AJAX技术的出现解决了这个问题.通过与服务器进行少量数据交互,AJAX实现了异步更新.
-具体来说,AJAX包括以下步骤
-
-创建AJAX对象
-发出HTTP请求
-接手服务器传回的数据
-更新网页数据
-
-X">
+<meta name="description" content="this先看这一段代码123456789101112function fun1()&amp;#123;  console.log(this)  console.log(arguments)&amp;#125;fun1()//window&amp;#123;......&amp;#125;      //[]fun1.call(null,&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)//window&amp;#123;......&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ajax">
-<meta property="og:url" content="http://panda-hjn.github.io/2016/09/22/Ajax/index.html">
+<meta property="og:title" content="this">
+<meta property="og:url" content="http://panda-hjn.github.io/2016/12/08/this/index.html">
 <meta property="og:site_name" content="韩佳宁的博客">
-<meta property="og:description" content="AJAX(Asynchronous Javascript And XML)在AJAX技术出现之前,如果想局部的更新页面信息,必须要刷新整个页面.递交表单,查询信息…这些操作在那个时代的体验比较糟糕.AJAX技术的出现解决了这个问题.通过与服务器进行少量数据交互,AJAX实现了异步更新.
-具体来说,AJAX包括以下步骤
-
-创建AJAX对象
-发出HTTP请求
-接手服务器传回的数据
-更新网页数据
-
-X">
-<meta property="og:updated_time" content="2016-10-15T12:44:52.666Z">
+<meta property="og:description" content="this先看这一段代码123456789101112function fun1()&amp;#123;  console.log(this)  console.log(arguments)&amp;#125;fun1()//window&amp;#123;......&amp;#125;      //[]fun1.call(null,&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)//window&amp;#123;......&amp;#125;">
+<meta property="og:updated_time" content="2016-12-09T13:24:20.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ajax">
-<meta name="twitter:description" content="AJAX(Asynchronous Javascript And XML)在AJAX技术出现之前,如果想局部的更新页面信息,必须要刷新整个页面.递交表单,查询信息…这些操作在那个时代的体验比较糟糕.AJAX技术的出现解决了这个问题.通过与服务器进行少量数据交互,AJAX实现了异步更新.
-具体来说,AJAX包括以下步骤
-
-创建AJAX对象
-发出HTTP请求
-接手服务器传回的数据
-更新网页数据
-
-X">
+<meta name="twitter:title" content="this">
+<meta name="twitter:description" content="this先看这一段代码123456789101112function fun1()&amp;#123;  console.log(this)  console.log(arguments)&amp;#125;fun1()//window&amp;#123;......&amp;#125;      //[]fun1.call(null,&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)//window&amp;#123;......&amp;#125;">
 
 
 
@@ -145,13 +121,13 @@ X">
 
 
 
-  <link rel="canonical" href="http://panda-hjn.github.io/2016/09/22/Ajax/"/>
+  <link rel="canonical" href="http://panda-hjn.github.io/2016/12/08/this/"/>
 
 
 
 
 
-  <title> Ajax | 韩佳宁的博客 </title>
+  <title> this | 韩佳宁的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +238,7 @@ X">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/09/22/Ajax/">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/12/08/this/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩佳宁">
@@ -286,7 +262,7 @@ X">
             
             
               
-                Ajax
+                this
               
             
           </h1>
@@ -299,8 +275,8 @@ X">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-22T23:11:03+08:00">
-                2016-09-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T19:02:44+08:00">
+                2016-12-08
               </time>
             
 
@@ -336,42 +312,8 @@ X">
 
       
         <hr>
-<h1 id="AJAX-Asynchronous-Javascript-And-XML"><a href="#AJAX-Asynchronous-Javascript-And-XML" class="headerlink" title="AJAX(Asynchronous Javascript And XML)"></a>AJAX(Asynchronous Javascript And XML)</h1><p>在AJAX技术出现之前,如果想局部的更新页面信息,必须要刷新整个页面.递交表单,查询信息…这些操作在那个时代的体验比较糟糕.<br>AJAX技术的出现解决了这个问题.通过与服务器进行少量数据交互,AJAX实现了异步更新.</p>
-<p>具体来说,AJAX包括以下步骤</p>
-<ol>
-<li>创建AJAX对象</li>
-<li>发出HTTP请求</li>
-<li>接手服务器传回的数据</li>
-<li>更新网页数据</li>
-</ol>
-<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><p><code>XMLHttpRequest</code>对象用于在浏览器和服务器之间传递数据.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">ajax.open(<span class="string">'GET'</span>,<span class="string">'http://pandahjn.applinzi.com/nothing.php'</span>,<span class="literal">true</span>)</div><div class="line"><span class="string">``</span><span class="string">`   </span></div><div class="line">这段代码向指定的服务器发出`GET<span class="string">`请求.</span></div><div class="line">然后AJAX指定回调函数,监听`XMLHttpRequest.readyState<span class="string">`来获取通信状态的变化情况</span></div><div class="line"></div><div class="line">虽然名为"异步的XML",但却可以传输多种数据.也支持其他协议,比如FTP      </div><div class="line">`<span class="built_in">JSON</span><span class="string">`是目前事实上的主流的数据交互格式.   </span></div><div class="line"></div><div class="line">这是一个典型的XMLHttpRequest用法</div><div class="line">`<span class="string">``</span>js</div><div class="line"><span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line"><span class="comment">//建立 XMLHttpRequest对象</span></div><div class="line"></div><div class="line">ajax.onreadystatechang = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (ajax.readyState === <span class="number">4</span> &amp;&amp; ajax.status == <span class="number">200</span>) &#123;<span class="comment">//ajax通信状态值为4且http状态码为200时方为通信成功</span></div><div class="line">    <span class="built_in">console</span>.log(ajax.responseText)</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.error(ajax.statusText)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ajax.open(<span class="string">'GET'</span>,<span class="string">'/nothing.php'</span>,<span class="literal">true</span>)</div><div class="line"><span class="comment">//指定http请求方式,请求的地址,是否异步</span></div><div class="line"></div><div class="line">ajax.send()</div><div class="line"><span class="comment">//发送http请求</span></div></pre></td></tr></table></figure></p>
-<ul>
-<li>readyState<br><code>readyState</code>是一个表示<code>XMLHttpRequest</code>请求当前所处状态的只读属性<br>通信过程中,每当状态发生一次变化,<code>readyState</code>属性的值就会发生改变.<code>readyState</code>的值没变化一次,都会触发<code>readyStateChange</code>事件<ul>
-<li>0: 请求未初始化</li>
-<li>1: 服务器连接已建立</li>
-<li>2: 请求已接收</li>
-<li>3: 请求处理中</li>
-<li>4: 请求已完成，且响应已就绪</li>
-</ul>
-</li>
-<li><p>onreadystatechang<br><code>onreadystatechang</code>属性指向一个回调函数,当<code>readyStateChange</code>事件发生时,所指向的回调函数就会被调用,与此同时<code>readyState</code>属性也会发生改变.<br>此外,使用<code>abort()</code>方法,终止XMLHttpRequest请求,<code>onreadystatechang</code>指向的回调函数也会被调用   </p>
-</li>
-<li><p>response<br><code>response</code>是一个用于返回接收到的数据的只读属性.<br>它的类型可以是<code>ArrayBuffer</code>,<code>Blob</code>,<code>Document</code>,<code>JSON</code>或者是一个字符串.<br>其类型由<code>XMLHttpRequest.responseType</code>的值决定<br>如果本次请求失败或者数据不完整,该属性值为<code>null</code>.</p>
-</li>
-<li>responseType<br><code>responseType</code>属性用来指定服务器返回类型<ul>
-<li><code>&quot;&quot;</code>: 字符串(默认值)</li>
-<li><code>arraybuffer</code>:    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer" target="_blank" rel="external">ArrayBuffer对象</a></li>
-<li><code>blob</code>: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="external">Blob对象</a>.适合读取二进制数据,比如图片文件</li>
-<li><code>document</code>:    Documentd对象</li>
-<li><code>json</code>: JSON对象</li>
-<li><code>text</code>: 字符串.适合大多数情况,直接处理文本比较方便</li>
-</ul>
-</li>
-<li>responseText<br><code>responseText</code>是一个返回从服务器接受的字符串的只读属性<br>如果本次请求失败或者数据不完整,该属性就为<code>null</code><br>如果服务器返回的数据格式是<code>JSON</code>就可以使用<code>responseText</code>属性   </li>
-<li>responseXML<br><code>responseXML</code></li>
-</ul>
-<hr>
-<p>以下待施工</p>
+<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>先看这一段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</div><div class="line">&#125;</div><div class="line">fun1()<span class="comment">//window&#123;......&#125;</span></div><div class="line">      <span class="comment">//[]</span></div><div class="line"></div><div class="line">fun1.call(<span class="literal">null</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)<span class="comment">//window&#123;......&#125;</span></div><div class="line">                           <span class="comment">//["a", "b", "c"]</span></div><div class="line"></div><div class="line">fun1.call(<span class="number">1</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>) <span class="comment">// Number &#123;[[PrimitiveValue]]: 1&#125;</span></div><div class="line">                         <span class="comment">//["a", "b", "c"]</span></div></pre></td></tr></table></figure></p>
+<p><code>arguments</code>是函数内部的一个类数组对象,里面装有函数的显性的参数.<br><code>this</code>这个关键字指向的是<strong>执行上下文</strong>(context),函数的默认上下文指向<code>window</code>对象.<br>使用<code>call()</code>来调用函数,其第一个参数用来指定执行上下文.(第一个参数为<code>null</code>或者<code>undefined</code>时,将指向<code>window</code>).<br><code>functionName()</code>与<code>functionName.call()</code>的区别就在于此.</p>
 
       
     </div>
@@ -397,6 +339,8 @@ X">
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
+            <a href="/tags/this/" rel="tag"># this</a>
+          
         </div>
       
 
@@ -404,8 +348,8 @@ X">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/27/正则表达式/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2016/12/08/函数/" rel="next" title="函数">
+                <i class="fa fa-chevron-left"></i> 函数
               </a>
             
           </div>
@@ -413,10 +357,6 @@ X">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/14/css/" rel="prev" title="CSS复习">
-                CSS复习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +469,7 @@ X">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX-Asynchronous-Javascript-And-XML"><span class="nav-number">1.</span> <span class="nav-text">AJAX(Asynchronous Javascript And XML)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.0.1.</span> <span class="nav-text">XMLHttpRequest</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#this"><span class="nav-number">1.</span> <span class="nav-text">this</span></a></li></ol></div>
             
 
           </div>

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="函数">
+<meta name="description" content="函数“正统”的函数调用方式12345var func = function () &amp;#123;  // to do&amp;#125;func()func.call()
+对于一个函数上面哪种调用方式更为”自然”,更为”正统”呢?刚开始接触 JavaScript 时想当然的觉得func()是”自然”的方式.但是深入学习后,尤其是研究了this后,有了新的认识.那就是func.call()是正统的函数调用方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数">
 <meta property="og:url" content="http://panda-hjn.github.io/2016/12/08/函数/index.html">
 <meta property="og:site_name" content="韩佳宁的博客">
-<meta property="og:description" content="函数">
-<meta property="og:updated_time" content="2016-12-08T10:31:38.703Z">
+<meta property="og:description" content="函数“正统”的函数调用方式12345var func = function () &amp;#123;  // to do&amp;#125;func()func.call()
+对于一个函数上面哪种调用方式更为”自然”,更为”正统”呢?刚开始接触 JavaScript 时想当然的觉得func()是”自然”的方式.但是深入学习后,尤其是研究了this后,有了新的认识.那就是func.call()是正统的函数调用方">
+<meta property="og:updated_time" content="2016-12-09T13:05:17.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数">
-<meta name="twitter:description" content="函数">
+<meta name="twitter:description" content="函数“正统”的函数调用方式12345var func = function () &amp;#123;  // to do&amp;#125;func()func.call()
+对于一个函数上面哪种调用方式更为”自然”,更为”正统”呢?刚开始接触 JavaScript 时想当然的觉得func()是”自然”的方式.但是深入学习后,尤其是研究了this后,有了新的认识.那就是func.call()是正统的函数调用方">
 
 
 
@@ -101,7 +104,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -312,7 +315,19 @@
 
       
         <hr>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="“正统”的函数调用方式"><a href="#“正统”的函数调用方式" class="headerlink" title="“正统”的函数调用方式"></a>“正统”的函数调用方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// to do</span></div><div class="line">&#125;</div><div class="line">func()</div><div class="line">func.call()</div></pre></td></tr></table></figure>
+<p>对于一个函数上面哪种调用方式更为”自然”,更为”正统”呢?<br>刚开始接触 JavaScript 时想当然的觉得<code>func()</code>是”自然”的方式.<br>但是深入学习后,尤其是研究了<code>this</code>后,有了新的认识.<br>那就是<code>func.call()</code>是正统的函数调用方式,而<code>func()</code>则是个语法糖.</p>
+<h2 id="函数的声明与报错"><a href="#函数的声明与报错" class="headerlink" title="函数的声明与报错"></a>函数的声明与报错</h2><h4 id="情况1"><a href="#情况1" class="headerlink" title="情况1"></a>情况1</h4><p>打开控制台,随便输入一些乱码,会报错.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fdfdsalfjsafdja<span class="comment">//Uncaught ReferenceError: fdfdsalfjsafdja is not defined</span></div></pre></td></tr></table></figure></p>
+<p>声明一个函数,在函数内部写一些乱码则不会报错<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  sads33</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>除非调用这个函数,控制台才会报错<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fun1()<span class="comment">//Uncaught ReferenceError: sads33 is not defined</span></div></pre></td></tr></table></figure></p>
+<p>这说明,当声明了一个函数的时候,浏览器<strong>根本不会去看函数内部写了什么</strong>.<br>当只有调用的时候浏览器才会去看函数里面有什么,才会去做语法检查.</p>
+<h4 id="情况2"><a href="#情况2" class="headerlink" title="情况2"></a>情况2</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>以上为两种常用的函数声明方式<br>但是如果这么写将会<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fun3 = <span class="function"><span class="keyword">function</span> <span class="title">oldName</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">fun3()<span class="comment">//正常</span></div><div class="line">oldName()<span class="comment">//Uncaught ReferenceError: oldname is not defined</span></div></pre></td></tr></table></figure></p>
+<p>此时在全局作用域只能用使用<code>fun3()</code>.<br>在这个函数内部既可以使用<code>fun3()</code>也可以使用<code>oldName()</code>.</p>
+<h4 id="情况3"><a href="#情况3" class="headerlink" title="情况3"></a>情况3</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//Uncaught SyntaxError: Unexpected token (</span></div><div class="line">  <span class="comment">//报错原因: `function`关键字后面是需要有一个名字,</span></div><div class="line"></div><div class="line">((<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;))<span class="comment">//不会报错: 因为浏览器会认为括号中是个值</span></div><div class="line">+ <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//NAN 这一句被理解为一个表达式,结果为NAN</span></div><div class="line"><span class="number">1</span> + <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//"1function ()&#123;&#125;"  被理解为需要进行字符串拼接</span></div></pre></td></tr></table></figure>
+<h2 id="立即执行函数-IIFE"><a href="#立即执行函数-IIFE" class="headerlink" title="立即执行函数 IIFE"></a>立即执行函数 IIFE</h2><p>从字面就可以理解,就是声明一个函数,然后立即执行它.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">1</span>)&#125;<span class="comment">//Uncaught SyntaxError: Unexpected token (</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">2</span>)&#125;)()<span class="comment">//2</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">3</span>)&#125;).call()<span class="comment">//3</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">4</span>)&#125;.call()<span class="comment">//Uncaught SyntaxError: Unexpected token (</span></div><div class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">5</span>)&#125;.call()<span class="comment">//5</span></div><div class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">6</span>)&#125; <span class="comment">//false</span></div><div class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;<span class="comment">//false</span></div><div class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;.call()<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<p><code>!</code>表示取反,并且会要求后面的立刻求值</p>
+
       
     </div>
 
@@ -355,6 +370,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/08/this/" rel="prev" title="this">
+                this <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -422,7 +441,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -432,7 +451,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -467,7 +486,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#“正统”的函数调用方式"><span class="nav-number">1.1.</span> <span class="nav-text">“正统”的函数调用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的声明与报错"><span class="nav-number">1.2.</span> <span class="nav-text">函数的声明与报错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情况1"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">情况1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况2"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">情况2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况3"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">情况3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数-IIFE"><span class="nav-number">1.3.</span> <span class="nav-text">立即执行函数 IIFE</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -503,7 +522,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -569,13 +588,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
