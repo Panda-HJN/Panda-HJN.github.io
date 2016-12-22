@@ -1,0 +1,674 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Date," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="实现一个日历插件这篇博客的目标是要完成这样一个demo.
+明确需求
+在一页日历中,包含本月的所有日期.用黑色字体显示.被选中的日期用红色加粗字体表示.包含上个月的最后几天和下个月的前几天.用灰色字体表示.不可被选中.
+点击前进,后退两个按钮日历将会跳转到前一月/下一月.
+当鼠标悬浮在某个日期时,这个日期会出现一个灰色的矩形.
+日历根据所选择的日期,会返回这个日期的时间对象.并在框体内以YYYY/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数">
+<meta property="og:url" content="http://panda-hjn.github.io/2016/12/22/实现一个日历插件/index.html">
+<meta property="og:site_name" content="韩佳宁的博客">
+<meta property="og:description" content="实现一个日历插件这篇博客的目标是要完成这样一个demo.
+明确需求
+在一页日历中,包含本月的所有日期.用黑色字体显示.被选中的日期用红色加粗字体表示.包含上个月的最后几天和下个月的前几天.用灰色字体表示.不可被选中.
+点击前进,后退两个按钮日历将会跳转到前一月/下一月.
+当鼠标悬浮在某个日期时,这个日期会出现一个灰色的矩形.
+日历根据所选择的日期,会返回这个日期的时间对象.并在框体内以YYYY/">
+<meta property="og:updated_time" content="2016-12-22T14:46:41.307Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数">
+<meta name="twitter:description" content="实现一个日历插件这篇博客的目标是要完成这样一个demo.
+明确需求
+在一页日历中,包含本月的所有日期.用黑色字体显示.被选中的日期用红色加粗字体表示.包含上个月的最后几天和下个月的前几天.用灰色字体表示.不可被选中.
+点击前进,后退两个按钮日历将会跳转到前一月/下一月.
+当鼠标悬浮在某个日期时,这个日期会出现一个灰色的矩形.
+日历根据所选择的日期,会返回这个日期的时间对象.并在框体内以YYYY/">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://panda-hjn.github.io/2016/12/22/实现一个日历插件/"/>
+
+
+
+
+
+  <title> 函数 | 韩佳宁的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">韩佳宁的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/12/22/实现一个日历插件/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="韩佳宁">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="韩佳宁的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="韩佳宁的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-22T19:07:33+08:00">
+                2016-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h1 id="实现一个日历插件"><a href="#实现一个日历插件" class="headerlink" title="实现一个日历插件"></a>实现一个日历插件</h1><p>这篇博客的目标是要完成这样一个<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E9%9F%A9%E4%BD%B3%E5%AE%81/task37/%E6%97%A5%E5%8E%86.html" target="_blank" rel="external">demo</a>.</p>
+<h2 id="明确需求"><a href="#明确需求" class="headerlink" title="明确需求"></a>明确需求</h2><ol>
+<li>在一页日历中,包含本月的所有日期.用黑色字体显示.被选中的日期用红色加粗字体表示.<br>包含上个月的最后几天和下个月的前几天.用灰色字体表示.不可被选中.</li>
+<li>点击<code>前进</code>,<code>后退</code>两个按钮日历将会跳转到前一月/下一月.</li>
+<li>当鼠标悬浮在某个日期时,这个日期会出现一个灰色的矩形.</li>
+<li>日历根据所选择的日期,会返回这个日期的时间对象.并在框体内以<code>YYYY/MM/DD</code>的形式展示.</li>
+<li>每个日历组件创建后默认选择当前日期,或者由<code>HTML</code>元素中的属性来决定当前选中的日期</li>
+<li>日历组件可在页面的重复使用</li>
+</ol>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p>HTML结构如下.</p>
+<p>页面的源文件中只需要有一个如下的<code>input</code>标签.<br><code>date-init</code> 属性设置初始时间,如果缺省则选当前时间.<br>这个<code>input</code>标签的jQuery元素将会作为参数传入到日历的构造函数中.   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"date-ipt"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"YYYY/MM/DD"</span> <span class="attr">date-init</span>=<span class="string">"2016/12/22"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>整个日历的基本模板由插件内的 <code>render</code>方法 动态生成.<br>每个月具体的日期存放在<code>&lt;tbody&gt;</code>内.由插件的<code>setDate</code>方法动态生成并排版.<br>下面是个范例.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- &lt;div class="ui-date-picker"&gt;&lt;/div&gt; 内的内容由函数动态生成 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ui-date-picker"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pre caret-left"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"cur"</span>&gt;</span>2016年12月<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="comment">&lt;!-- 这里显示的年月会根据具体时间由js来改变 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"next caret-right"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>日<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>四<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>五<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>六<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!--</span></div><div class="line">        tbody的内容由时间对象动态生成</div><div class="line">        在tbody内展示日期</div><div class="line">        --&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在 <code>tbody</code> 中由JavaScript来<strong>动态</strong>生成日历.<br>每行一组 <code>&lt;tr&gt;&lt;/tr&gt;</code> 内有<strong>七</strong>个 <code>&lt;td&gt;&lt;/td&gt;</code> .七天一个星期<br>上个月的 <code>&lt;td&gt;</code> 的 <code>class</code> 为 <code>pre-month</code>.<br>下个月的 <code>&lt;td&gt;</code> 的 <code>class</code> 为 <code>next-month</code>.<br>本月的  <code>&lt;td&gt;</code> 的 <code>class</code> 为 <code>cur-month</code>.<br>被选中的 <code>&lt;td&gt;</code> 的 <code>class</code> 额外添加 <code>cur-date</code>.   </p>
+<h2 id="JS部分"><a href="#JS部分" class="headerlink" title="JS部分"></a>JS部分</h2><h3 id="准备工具函数"><a href="#准备工具函数" class="headerlink" title="准备工具函数"></a>准备工具函数</h3><p>通过分析,发现正确的排版日历需要有如下几个功能来支持</p>
+<ol>
+<li>传入一个 <code>date</code> ,返回 <code>date</code> 所在月第一天的时间对象</li>
+<li>传入一个 <code>date</code> ,返回 <code>date</code> 所在月最后一天的时间对象</li>
+<li>传入一个 <code>date</code> ,返回上个月第一天的时间对象</li>
+<li>传入一个 <code>date</code> ,返回下个月第一天的时间对象</li>
+<li>判断<code>input</code>元素设置的表示初始时间的字符串是否合法</li>
+<li>把时间以<code>YYYY/MM/DD</code>的形式返回.把<code>1</code>改写为<code>01</code></li>
+</ol>
+<p>下面就写出函数来实现这几个功能.   </p>
+<h4 id="getFirstDay"><a href="#getFirstDay" class="headerlink" title="getFirstDay"></a>getFirstDay</h4><p><code>getFirstDay</code>方法可以获取 <code>date</code> 所在月份第一天的时间对象.<br>这个方法实现起来很简单.<br>只需要把 <code>date</code> 的 <code>年</code> <code>月</code> 和 <code>1</code> 做为参数来生成一个时间对象即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">getFirstDay: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> year = date.getFullYear(),</div><div class="line">      month = date.getMonth()</div><div class="line"></div><div class="line">  <span class="keyword">return</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="getLastDay"><a href="#getLastDay" class="headerlink" title="getLastDay"></a>getLastDay</h4><p><code>getLastDay</code>方法可以获取 <code>date</code> 所在月份最后一天的时间对象.<br>一个月可能有<code>30</code>,<code>31</code>,<code>28</code>,<code>29</code>天.但是每天都有<code>1000 * 60 * 60 * 24</code>毫秒.<br>可以先获得<strong>下个月的第一天</strong>的<strong>时间戳</strong>,再减去<code>1000 * 60 * 60 * 24</code>.<br>这样就能得到<code>date</code>所在月份的最后一天的时间戳了.   </p>
+<p>需要注意到问题是12月和1月交替时的情况.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">getLastDay: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> year = date.getFullYear(),</div><div class="line">      month = date.getMonth()</div><div class="line"></div><div class="line">      month++</div><div class="line">  <span class="comment">//下个月可能是明年一月了,年份+1,month变为0</span></div><div class="line">  <span class="keyword">if</span> (month &gt; <span class="number">11</span>) &#123;</div><div class="line">    year++</div><div class="line">    month = <span class="number">0</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(newDate.getTime() - <span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="getPreMonth"><a href="#getPreMonth" class="headerlink" title="getPreMonth"></a>getPreMonth</h4><p>获取 <code>date</code> 上个月 第一天的时间对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">getPreMonth: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> year = date.getFullYear(),</div><div class="line">        month = date.getMonth()</div><div class="line"></div><div class="line">    month--</div><div class="line">    <span class="comment">//上个月可能是去年12月,month--后就为负了</span></div><div class="line">    <span class="comment">//所以如果 month 变为负值,则设置month为11 ,year -1</span></div><div class="line">    <span class="keyword">if</span> (month &lt; <span class="number">0</span>) &#123;</div><div class="line">        year--</div><div class="line">        month = <span class="number">11</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="getNextMonth"><a href="#getNextMonth" class="headerlink" title="getNextMonth"></a>getNextMonth</h4><p>获取 <code>date</code> 下个月第一天的时间对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">getNextMonth: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> year = date.getFullYear(),</div><div class="line">        month = date.getMonth()</div><div class="line"></div><div class="line">    month++<span class="comment">//下月一号可能是明年了</span></div><div class="line">    <span class="keyword">if</span> (month &gt; <span class="number">11</span>) &#123;</div><div class="line">        month = <span class="number">0</span></div><div class="line">        year++</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="isValidDate"><a href="#isValidDate" class="headerlink" title="isValidDate"></a>isValidDate</h4><p>判断字符串是否能被 <code>Date()</code> 识别<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">isValidDate: <span class="function"><span class="keyword">function</span>(<span class="params">dateStr</span>) </span>&#123; <span class="comment">//判断html元素中设置的默认时间的字符串是否是个 有效日期</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(dateStr).toString() !== <span class="string">'Invalid Date'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="getYYMMDD"><a href="#getYYMMDD" class="headerlink" title="getYYMMDD"></a>getYYMMDD</h4><p>把时间以<code>yyyy/mm/dd</code>的形式返回出来.<br>同时要把<strong>个位</strong>数字前加<strong>0</strong>.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">getYYMMDD: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> yyyy = date.getFullYear(),</div><div class="line">        mm = <span class="keyword">this</span>.toFixed(date.getMonth() + <span class="number">1</span>)</div><div class="line">        dd = <span class="keyword">this</span>.toFixed(date.getDate())</div><div class="line">    <span class="keyword">return</span> yyyy + <span class="string">'/'</span> mm + <span class="string">'/'</span> + dd</div><div class="line">&#125;</div><div class="line"></div><div class="line">toFixed: <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (n + <span class="string">''</span>).length === <span class="number">1</span> ? (<span class="string">'0'</span> + n + <span class="string">''</span>) : (n + <span class="string">''</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="如何摆放tbody里的内容"><a href="#如何摆放tbody里的内容" class="headerlink" title="如何摆放tbody里的内容?"></a>如何摆放tbody里的内容?</h3><p>由已经完成的几个工具函数可以得到所有应该显示在日历内的日期的所有时间对象.<br>把所有的时间对象放入一个空数组内.并且标注好是上个月的下个月的还是这个月的日期.<br>然后由通过遍历这个数组来拼装 <code>tbody</code>里的内容.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">setData: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.$datepicker.find(<span class="string">'tbody'</span>).html(<span class="string">''</span>) <span class="comment">//tbody内容初始为空</span></div><div class="line"></div><div class="line">        <span class="keyword">var</span> dateArr = [] <span class="comment">//当前页面的所有日期都会以JSON的形式放入这个数组中</span></div><div class="line"></div><div class="line">        <span class="keyword">var</span> firstDay = <span class="keyword">this</span>.getFirstDay(<span class="keyword">this</span>.watchDate), <span class="comment">//当前月的第一天的时间对象 1号</span></div><div class="line">            lastDay = <span class="keyword">this</span>.getLastDay(<span class="keyword">this</span>.watchDate) <span class="comment">//当前月的最后一天的时间对象 30/31/28/29</span></div><div class="line"></div><div class="line">        <span class="comment">//日历的header上要显示的内容</span></div><div class="line">        <span class="keyword">var</span> dateTitle = <span class="keyword">this</span>.watchDate.getFullYear() + <span class="string">'年'</span> + (<span class="keyword">this</span>.watchDate.getMonth() + <span class="number">1</span>) + <span class="string">'月'</span></div><div class="line">        <span class="keyword">this</span>.$datepicker.find(<span class="string">'.header-date'</span>).text(dateTitle)</div><div class="line"></div><div class="line">        <span class="comment">//根据firstDay是星期几来判断如何排版上个月最后几天</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = firstDay.getDay(); i &gt; <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(firstDay.getTime() - i * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>)</div><div class="line">            dateArr.push(&#123;</div><div class="line">                    type: <span class="string">'pre'</span>,</div><div class="line">                    date: d</div><div class="line">                &#125;) <span class="comment">//以JSON形式存入dateArr</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//lastDay 减去 firstDay 来判断这个月有几天.</span></div><div class="line">        <span class="comment">//根据这个来排版</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; lastDay.getDate() - firstDay.getDate() + <span class="number">1</span>; j++) &#123;</div><div class="line">            <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(firstDay.getTime() + j * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>)</div><div class="line">            dateArr.push(&#123;</div><div class="line">                type: <span class="string">'cur'</span>,</div><div class="line">                date: d</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//根据lastDay是星期几来排版下个月前几天</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">1</span>; k &lt; <span class="number">7</span> - lastDay.getDay(); k++) &#123;</div><div class="line">            <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(lastDay.getTime() + k * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>)</div><div class="line">            dateArr.push(&#123;</div><div class="line">                type: <span class="string">'next'</span>,</div><div class="line">                date: d</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//dateArr装填完毕,开始拼装tbody内的元素</span></div><div class="line">        <span class="keyword">var</span> tpl = <span class="string">''</span> <span class="comment">//初始为空</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; dateArr.length; i++) &#123; <span class="comment">//遍历整个dateArr</span></div><div class="line">            <span class="keyword">if</span> (i % <span class="number">7</span> === <span class="number">0</span>) &#123;</div><div class="line">                tpl = <span class="string">'&lt;tr&gt;'</span> + tpl</div><div class="line">            &#125; <span class="comment">//日历中每一行是一个&lt;tr&gt;</span></div><div class="line"></div><div class="line">            tpl += <span class="string">'&lt;td class="'</span></div><div class="line"></div><div class="line">            <span class="keyword">if</span> (dateArr[i].type === <span class="string">'pre'</span>) &#123; <span class="comment">//根据日期时上个月 这个月还是下个月的来添加不同class</span></div><div class="line">                tpl += <span class="string">'pre-month'</span></div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dateArr[i].type === <span class="string">'cur'</span>) &#123;</div><div class="line">                tpl += <span class="string">'cur-month'</span></div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                tpl += <span class="string">'next-month'</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.getYYMMDD(<span class="keyword">this</span>.date) === <span class="keyword">this</span>.getYYMMDD(dateArr[i].date)) &#123;</div><div class="line">                tpl += <span class="string">' cur-date'</span></div><div class="line">            &#125; <span class="comment">//为选择的日期添加class</span></div><div class="line">            tpl += <span class="string">'"'</span></div><div class="line"></div><div class="line">            tpl += <span class="string">' data-date="'</span> + <span class="keyword">this</span>.getYYMMDD(dateArr[i].date) + <span class="string">'"&gt;'</span></div><div class="line">            tpl += <span class="keyword">this</span>.toFixed(dateArr[i].date.getDate()) + <span class="string">'&lt;/td&gt;'</span></div><div class="line"></div><div class="line"></div><div class="line">            <span class="keyword">if</span> (i % <span class="number">7</span> === <span class="number">6</span>) &#123;</div><div class="line">                tpl = tpl + <span class="string">'&lt;/tr&gt;'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.$datepicker.find(<span class="string">'tbody'</span>).html(tpl) <span class="comment">//把tpl插入 tbody</span></div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="绑定事件-生成jQuery插件"><a href="#绑定事件-生成jQuery插件" class="headerlink" title="绑定事件,生成jQuery插件."></a>绑定事件,生成jQuery插件.</h3><pre><code class="js">$.fn.datePicker = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+       <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+         <span class="keyword">new</span> DatePicker($(<span class="keyword">this</span>))
+       })
+   }
+
+   $(<span class="string">'.date-ipt'</span>).datePicker()
+</code></pre>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Date/" rel="tag"># Date</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/22/状态机/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/22/拖放/" rel="prev" title="拖动">
+                拖动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="韩佳宁" />
+          <p class="site-author-name" itemprop="name">韩佳宁</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现一个日历插件"><span class="nav-number">1.</span> <span class="nav-text">实现一个日历插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#明确需求"><span class="nav-number">1.1.</span> <span class="nav-text">明确需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.2.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS部分"><span class="nav-number">1.3.</span> <span class="nav-text">JS部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工具函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">准备工具函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getFirstDay"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">getFirstDay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getLastDay"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">getLastDay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getPreMonth"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">getPreMonth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getNextMonth"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">getNextMonth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isValidDate"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">isValidDate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getYYMMDD"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">getYYMMDD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何摆放tbody里的内容"><span class="nav-number">1.3.2.</span> <span class="nav-text">如何摆放tbody里的内容?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定事件-生成jQuery插件"><span class="nav-number">1.3.3.</span> <span class="nav-text">绑定事件,生成jQuery插件.</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">韩佳宁</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
