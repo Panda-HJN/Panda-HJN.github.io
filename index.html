@@ -236,7 +236,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2017/02/11/数据类型转换/">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2017/02/11/icon/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩佳宁">
@@ -261,8 +261,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/11/数据类型转换/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2017/02/11/icon/" itemprop="url">
+                  Icon
                 </a>
               
             
@@ -276,7 +276,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T19:24:29+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T22:42:15+08:00">
                 2017-02-11
               </time>
             
@@ -314,14 +314,18 @@
       
         
           
-            <h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><p>JavaScript 是一种动态类型语言,变量没有类型限制,可以随时赋予任意值.   </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = y ? <span class="number">1</span> : <span class="string">'a'</span></div></pre></td></tr></table></figure>
-<p>虽然JS中变量没有类型，但是数据本身和各种运算符是有类型的。<br>如果运算符发现，数据的类型与<strong>预期</strong>不符，就会自动转换类型.<br>比如，减法运算符预期两侧的运算子应该是数值，如果不是，就会自动将它们转为数值。</p>
-<pre><code class="js"><span class="string">'4'</span> - <span class="string">'3'</span><span class="comment">//1</span>
-</code></pre>
-<p>JS中类型转换是个令人头疼的问题.<br>本篇讲述强制转换和自动转换的规则.</p>
-<h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><p>强制转换主要指使用<code>Number</code>、<code>String</code>和<code>Boolean</code>三个构造函数，手动将各种类型的值，转换成数字、字符串或者布尔值</p>
-<h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2>
+            <hr>
+<h1 id="图标实现的几种方式"><a href="#图标实现的几种方式" class="headerlink" title="图标实现的几种方式"></a>图标实现的几种方式</h1><h2 id="img"><a href="#img" class="headerlink" title="img"></a>img</h2><p>直接使用img标签<br>http 请求多</p>
+<h2 id="雪碧图"><a href="#雪碧图" class="headerlink" title="雪碧图"></a>雪碧图</h2><p>利用 <code>background-position</code>属性<br>把大量的小图标合并成一张图<br>将多个http请求合并为一个<br>缺点:需要显示多大,图就要有多大 无法缩放<br>不好修改</p>
+<h2 id="Icon-Font"><a href="#Icon-Font" class="headerlink" title="Icon Font"></a>Icon Font</h2><p>把字体做成图标</p>
+<ol>
+<li>制作字体图标</li>
+<li>声明 font-family</li>
+<li>使用 font-family</li>
+</ol>
+<h2 id="css-icon"><a href="#css-icon" class="headerlink" title="css icon"></a>css icon</h2><p>单独使用去搜索<br>大规模就用 font-a</p>
+<h2 id="svg-icon"><a href="#svg-icon" class="headerlink" title="svg icon"></a>svg icon</h2><p>移动端首选</p>
+
           
         
       
@@ -359,7 +363,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2017/02/08/icon/">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2017/02/11/数据类型转换/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩佳宁">
@@ -384,8 +388,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/08/icon/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2017/02/11/数据类型转换/" itemprop="url">
+                  数据类型转换
                 </a>
               
             
@@ -399,8 +403,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T02:11:25+08:00">
-                2017-02-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T12:17:25+08:00">
+                2017-02-11
               </time>
             
 
@@ -437,17 +441,13 @@
       
         
           
-            <h1 id="图标实现的几种方式"><a href="#图标实现的几种方式" class="headerlink" title="图标实现的几种方式"></a>图标实现的几种方式</h1><h2 id="img"><a href="#img" class="headerlink" title="img"></a>img</h2><p>直接使用img标签<br>http 请求多</p>
-<h2 id="雪碧图"><a href="#雪碧图" class="headerlink" title="雪碧图"></a>雪碧图</h2><p>利用 <code>background-position</code>属性<br>把大量的小图标合并成一张图<br>将多个http请求合并为一个<br>缺点:需要显示多大,图就要有多大 无法缩放<br>不好修改</p>
-<h2 id="Icon-Font"><a href="#Icon-Font" class="headerlink" title="Icon Font"></a>Icon Font</h2><p>把字体做成图标</p>
-<ol>
-<li>制作字体图标 </li>
-<li>声明 font-family</li>
-<li>使用 font-family</li>
-</ol>
-<h2 id="css-icon"><a href="#css-icon" class="headerlink" title="css icon"></a>css icon</h2><p>单独使用去搜索<br>大规模就用 font-a</p>
-<h2 id="svg-icon"><a href="#svg-icon" class="headerlink" title="svg icon"></a>svg icon</h2><p>移动端首选</p>
-
+            <hr>
+<h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><p>JavaScript 是一种动态类型语言,变量没有类型限制,可以随时赋予任意值.   </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = y ? <span class="number">1</span> : <span class="string">'a'</span></div></pre></td></tr></table></figure>
+<p>虽然JS中变量没有类型，但是数据本身和各种运算符是有类型的。<br>如果运算符发现，数据的类型与<strong>预期</strong>不符，就会自动转换类型.<br>比如，减法运算符预期两侧的运算子应该是数值，如果不是，就会自动将它们转为数值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'4'</span> - <span class="string">'3'</span><span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<p>JS中类型转换是个令人头疼的问题.<br>本篇讲述强制转换和自动转换的规则.</p>
+<h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><p>强制转换主要指使用<code>Number</code>、<code>String</code>和<code>Boolean</code>三个构造函数，手动将各种类型的值，转换成数字、字符串或者布尔值</p>
+<h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2>
           
         
       
@@ -789,7 +789,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2017/01/03/运算符优先级/">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/12/27/运算符优先级/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="韩佳宁">
@@ -814,8 +814,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/03/运算符优先级/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2016/12/27/运算符优先级/" itemprop="url">
+                  运算符优先级
                 </a>
               
             
@@ -829,8 +829,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-03T19:31:18+08:00">
-                2017-01-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-27T09:17:03+08:00">
+                2016-12-27
               </time>
             
 
@@ -867,143 +867,8 @@
       
         
           
-            <p>19    圆括号    n/a    ( … )<br>18    成员访问    从左到右    … . …<br>需计算的成员访问    从左到右    … [ … ]<br>new (带参数列表)    n/a    new … ( … )<br>17    函数调用    从左到右    … ( … )<br>new (无参数列表)    从右到左    new …<br>16    后置递增(运算符在后)    n/a    … ++<br>后置递减(运算符在后)    n/a    … –<br>15    逻辑非    从右到左    ! …<br>按位非    从右到左    ~ …<br>一元加法    从右到左    + …<br>一元减法    从右到左    - …<br>前置递增    从右到左    ++ …<br>前置递减    从右到左    – …<br>typeof    从右到左    typeof …<br>void    从右到左    void …<br>delete    从右到左    delete …    圆括号    n/a    ( … )<br>18    成员访问    从左到右    … . …<br>需计算的成员访问    从左到右    … [ … ]<br>new (带参数列表)    n/a    new … ( … )<br>17    函数调用    从左到右    … ( … )<br>new (无参数列表)    从右到左    new …<br>16    后置递增(运算符在后)    n/a    … ++<br>后置递减(运算符在后)    n/a    … –<br>15    逻辑非    从右到左    ! …<br>按位非    从右到左    ~ …<br>一元加法    从右到左    + …<br>一元减法    从右到左    - …<br>前置递增    从右到左    ++ …<br>前置递减    从右到左    – …<br>typeof    从右到左    typeof …<br>void    从右到左    void …<br>delete    从右到左    delete …</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/12/24/dddddddddd/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="韩佳宁">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="韩佳宁的博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="韩佳宁的博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/24/dddddddddd/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-24T14:50:50+08:00">
-                2016-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>*{margin:0;padding:0;}<br>ul{list-style:none}<br>.container{<br>    position:absolute;<br>    bottom:10px;<br>    left:10px;<br>    width:50px;<br>    height:50px;<br>    box-shadow:0 0 10px rgba(0,0,0,0.7);<br>    border-radius:25px;<br>}<br>.circle{<br>    width:40px;<br>    height:40px;<br>    position:absolute;<br>    top:5px;<br>    left:5px;<br>    text-align:center;<br>    font-size:30px;<br>    line-height:40px;<br>    color:#fff;<br>    cursor:pointer;<br>    border-radius:20px;<br>    background-image:linear-gradient(#E85738, #CB2C16);<br>    transform: rotate(45deg);<br>    transform-style:preserve-3d;<br>    transition: all 0.2s linear;<br>}<br>.circle:active:before {<br>  content: “”;<br>  display: block;<br>  position: absolute;<br>  top: 0;<br>  left:0;<br>  bottom:0;<br>  right:0;<br>  background: rgba(0, 0, 0, 0.3);<br>  pointer-events: none;<br>  border-radius: 20px;<br>}<br>.items li{<br>    position: fixed;<br>    bottom: 20px;<br>    left: 20px;<br>    z-index: -1;<br>    display: block;<br>    height: 26px;<br>    width: 26px;<br>    color: white;<br>    text-align: center;<br>    line-height: 26px;<br>    font-size: 18px;<br>    background-image: linear-gradient(#433f3c, #44403d);<br>    box-shadow: 0 0 0 4px #fff, 0 0 0 5px rgba(0, 0, 0, 0.3), inset 0 0 0 1px black, 0 0 0 5px rgba(0, 0, 0, 0.3);<br>    border-radius: 13px;<br>    transform-style: preserve-3d;<br>}</p>
-<p>#menu:checked ~ .items li:nth-child(1) {<br>  animation-name: appear-1;<br>  animation-duration: 240ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;<br>  animation-delay: 20ms;<br>}</p>
-<p>#menu:not(:checked) ~ .items li:nth-child(1) {<br>  animation-name: disappear-1;<br>  animation-duration: 387.5ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;</p>
-<p>}<br>@keyframes appear-1 {<br>  0% {<br>    transform: translate3d(0, 0, 0px) rotateZ(270deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  80% {<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>    transform: translate3d(228px, -30px, 0px) rotateZ(0deg);<br>  }<br>  100% {<br>    transform: translate3d(198px, -26px, 0px);<br>  }<br>}<br>@keyframes disappear-1 {<br>  0% {<br>    transform: translate3d(198px, -26px, 0px) rotateZ(0deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  70% {<br>    transform: translate3d(228px, -30px, 0px) rotateZ(360deg);<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>  }<br>  100% {<br>    transform: translate3d(0, 0, 0px) rotateZ(540deg);<br>  }<br>}</p>
-<p>#menu:checked ~ .items li:nth-child(2) {<br>  animation-name: appear-2;<br>  animation-duration: 240ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;<br>  animation-delay: 40ms;<br>}</p>
-<p>#menu:not(:checked) ~ .items li:nth-child(2) {<br>  animation-name: disappear-2;<br>  animation-duration: 411.125ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;</p>
-<p>}<br>@keyframes appear-2 {<br>  0% {<br>    transform: translate3d(0, 0, 0px) rotateZ(270deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  80% {<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>    transform: translate3d(213px, -89px, 0px) rotateZ(0deg);<br>  }<br>  100% {<br>    transform: translate3d(185px, -77px, 0px);<br>  }<br>}<br>@keyframes disappear-2 {<br>  0% {<br>    transform: translate3d(185px, -77px, 0px) rotateZ(0deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  70% {<br>    transform: translate3d(213px, -89px, 0px) rotateZ(360deg);<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>  }<br>  100% {<br>    transform: translate3d(0, 0, 0px) rotateZ(540deg);<br>  }<br>}</p>
-<p>#menu:checked ~ .items li:nth-child(3) {<br>  animation-name: appear-3;<br>  animation-duration: 240ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;<br>  animation-delay: 60ms;<br>}</p>
-<p>#menu:not(:checked) ~ .items li:nth-child(3) {<br>  animation-name: disappear-3;<br>  animation-duration: 443.019ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;</p>
-<p>}<br>@keyframes appear-3 {<br>  0% {<br>    transform: translate3d(0, 0, 0px) rotateZ(270deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  80% {<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>    transform: ranslate3d(183px, -140px, 0px) rotateZ(0deg);<br>  }<br>  100% {<br>    transform: translate3d(159px, -122px, 0px);<br>  }<br>}<br>@keyframes disappear-3 {<br>  0% {<br>    transform: translate3d(159px, -122px, 0px) rotateZ(0deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  70% {<br>    transform: translate3d(183px, -140px, 0px) rotateZ(360deg);<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>  }<br>  100% {<br>    transform: translate3d(0, 0, 0px) rotateZ(540deg);<br>  }<br>}</p>
-<p>#menu:checked ~ .items li:nth-child(4) {<br>  animation-name: appear-4;<br>  animation-duration: 240ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;<br>  animation-delay: 80ms;<br>}</p>
-<p>#menu:not(:checked) ~ .items li:nth-child(4) {<br>  animation-name: disappear-4;<br>  animation-duration: 486.075ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;</p>
-<p>}<br>@keyframes appear-4 {<br>  0% {<br>    transform: translate3d(0, 0, 0px) rotateZ(270deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  80% {<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>    transform: translate3d(140px, -183px, 0px) rotateZ(0deg);<br>  }<br>  100% {<br>    transform: translate3d(122px, -159px, 0px);<br>  }<br>}<br>@keyframes disappear-4 {<br>  0% {<br>    transform: translate3d(122px, -159px, 0px) rotateZ(0deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  70% {<br>    transform: translate3d(140px, -183px, 0px) rotateZ(360deg);<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>  }<br>  100% {<br>    transform: translate3d(0, 0, 0px) rotateZ(540deg);<br>  }<br>}</p>
-<p>#menu:checked ~ .items li:nth-child(5) {<br>  animation-name: appear-5;<br>  animation-duration: 240ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;<br>  animation-delay: 100ms;<br>}</p>
-<p>#menu:not(:checked) ~ .items li:nth-child(5) {<br>  animation-name: disappear-5;<br>  animation-duration: 544.202ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;</p>
-<p>}<br>@keyframes appear-5 {<br>  0% {<br>    transform: translate3d(0, 0, 0px) rotateZ(270deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  80% {<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>    transform: translate3d(89px, -213px, 0px) rotateZ(0deg)<br>  }<br>  100% {<br>    transform: translate3d(77px, -185px, 0px);<br>  }<br>}<br>@keyframes disappear-5 {<br>  0% {<br>    transform: translate3d(77px, -185px, 0px) rotateZ(0deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  70% {<br>    transform: translate3d(89px, -213px, 0px) rotateZ(360deg);<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>  }<br>  100% {<br>    transform: translate3d(0, 0, 0px) rotateZ(540deg);<br>  }<br>}</p>
-<p>#menu:checked ~ .items li:nth-child(6) {<br>  animation-name: appear-6;<br>  animation-duration: 240ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;<br>  animation-delay: 120ms;<br>}</p>
-<p>#menu:not(:checked) ~ .items li:nth-child(6) {<br>  animation-name: disappear-6;<br>  animation-duration: 544.202ms;<br>  animation-iteration-count: 1;<br>  animation-fill-mode: forwards;</p>
-<p>}<br>@keyframes appear-6 {<br>  0% {<br>    transform: translate3d(0, 0, 0px) rotateZ(270deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  80% {<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>    transform: translate3d(30px, -228px, 0px) rotateZ(0deg)<br>  }<br>  100% {<br>    transform: translate3d(26px, -198px, 0px);<br>  }<br>}<br>@keyframes disappear-6 {<br>  0% {<br>    transform: translate3d(26px, -198px, 0px); rotateZ(0deg);<br>    animation-timing-function: cubic-bezier(1, 0.6, 0.57, 0.75);<br>  }<br>  70% {<br>    transform: translate3d(30px, -228px, 0px) rotateZ(360deg);<br>    animation-timing-function: cubic-bezier(0.45, 0.97, 0.51, 0.78);<br>  }<br>  100% {<br>    transform: translate3d(0, 0, 0px) rotateZ(540deg);<br>  }</p>
-<p>}<br>input{<br>  display:none;<br>}</p>
+            <hr>
+<p>19    圆括号    n/a    ( … )<br>18    成员访问    从左到右    … . …<br>需计算的成员访问    从左到右    … [ … ]<br>new (带参数列表)    n/a    new … ( … )<br>17    函数调用    从左到右    … ( … )<br>new (无参数列表)    从右到左    new …<br>16    后置递增(运算符在后)    n/a    … ++<br>后置递减(运算符在后)    n/a    … –<br>15    逻辑非    从右到左    ! …<br>按位非    从右到左    ~ …<br>一元加法    从右到左    + …<br>一元减法    从右到左    - …<br>前置递增    从右到左    ++ …<br>前置递减    从右到左    – …<br>typeof    从右到左    typeof …<br>void    从右到左    void …<br>delete    从右到左    delete …    圆括号    n/a    ( … )<br>18    成员访问    从左到右    … . …<br>需计算的成员访问    从左到右    … [ … ]<br>new (带参数列表)    n/a    new … ( … )<br>17    函数调用    从左到右    … ( … )<br>new (无参数列表)    从右到左    new …<br>16    后置递增(运算符在后)    n/a    … ++<br>后置递减(运算符在后)    n/a    … –<br>15    逻辑非    从右到左    ! …<br>按位非    从右到左    ~ …<br>一元加法    从右到左    + …<br>一元减法    从右到左    - …<br>前置递增    从右到左    ++ …<br>前置递减    从右到左    – …<br>typeof    从右到左    typeof …<br>void    从右到左    void …<br>delete    从右到左    delete …</p>
 
           
         
@@ -1536,6 +1401,144 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/12/22/拖放/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="韩佳宁">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="韩佳宁的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="韩佳宁的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/22/拖放/" itemprop="url">
+                  拖动
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-22T22:42:05+08:00">
+                2016-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<ul>
+<li><p><code>draggable</code>是一个HTML5属性,当其值为<code>true</code>时,元素可被拖放<br>下面是一组例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">draggable</span>=<span class="string">"true"</span> <span class="attr">ondragstart</span>=<span class="string">"doSomething()"</span>&gt;</span>这个元素可被拖动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>这个元素draggable默认为false,不可被拖动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>drag 动词:拖动;名词:阻力,累赘.</p>
+</li>
+<li><p><code>ondrag</code> 事件在元素或者选取的文本被拖动时触发。</p>
+</li>
+<li>在<strong>拖动目标</strong>上触发事件:<ul>
+<li><code>ondragstart</code> 用户<strong>开始</strong>拖动元素时触发.</li>
+<li><code>ondrag</code> 元素<strong>正在</strong>拖动时触发.</li>
+<li><code>ondragend</code>  用户<strong>完成</strong>元素拖动后触发.</li>
+</ul>
+</li>
+<li>在<strong>释放目标</strong>时触发的事件:<ul>
+<li><code>ondragenter</code> 当被鼠标拖动的对象进入其容器范围内时触发此事件.</li>
+<li><code>ondragover</code> 当某被拖动的对象在另一对象容器范围内拖动时触发此事件.</li>
+<li><code>ondragleave</code> 当被鼠标拖动的对象离开其容器范围内时触发此事件.</li>
+<li><code>ondrop</code> 在一个拖动过程中，释放鼠标键时触发此事件.</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1581,7 +1584,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1591,7 +1594,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
