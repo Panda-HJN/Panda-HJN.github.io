@@ -236,6 +236,160 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/10/14/css/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="韩佳宁">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="韩佳宁的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="韩佳宁的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/14/css/" itemprop="url">
+                  CSS复习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-14T10:25:34+08:00">
+                2016-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>三种列表: ul&gt;li  ol&gt;li dl&gt;dt&gt;li 其中dt是自定义的表头</p>
+</li>
+<li><p><code>input</code>中添加<code>readly</code>可以让其成为只读.</p>
+</li>
+<li>雪碧图 background-position X Y.</li>
+<li>图片剧中 的父级元素添加 text-align：center.</li>
+<li>外边距合并  较大者 兄弟外边距合并</li>
+<li>父子合并 父亲 没有 padding 或者 边框 会产生</li>
+<li>相邻元素会合并 不相邻也可能（没有边界线）</li>
+<li>边界线 可以是 padding 可以是 边框 也可以是 bfc形成的空间</li>
+<li>对于父子合并 父亲若是bfc 可以避免父子合并</li>
+<li>子元素没事不要加宽度百分之百 不然容易被自身margin干扰，最后出现横向滚动条</li>
+<li>vertical-align: middle要给你所有想剧中的元素加上才行</li>
+<li>px指的是像素,值是固定的，使用频率最</li>
+<li>em和rem是相的长度单位，em是相对于父元素的px的倍数</li>
+<li>rem相对于根元素的px，多用于移动端</li>
+<li><form> 元素 表示了文档中的一个区域，这个区域包含有交互控制元件，用来向web服务器提交信息。</form></li>
+<li><form method="传送方式" action="服务器文件"></form></li>
+<li>absolute 相对于自己有position属性的父元素定位 脱离文档流水</li>
+<li>relative 相对于自己的原始位置定位(依旧占据着文档流中的空间)</li>
+<li>fixed 脱离文档流 相对于浏览器窗口定位</li>
+<li>z-index仅能在定位元素上奏效</li>
+<li>相同z-index按文档流顺序，后面的覆盖前面的</li>
+<li>固定宽高的元素垂直水平居中 绝对定位 top 50left 50 margin-left ：-50% margin:-50%</li>
+<li>BFC(Block formatting context)直译为”块级格式化上下文”。<br>一个独立的渲染区域 内部子元素再怎么折腾,都不会影响外部的元素。<br>浮动元素 overflow：auto,scroll或hidden</li>
+<li>overflow处理内容溢出元素框<br>默认值visible溢出盒子的内容都被显示(溢出内容会覆盖到其他元素)<br>hidden 内容会被修剪<br>scroll 元素无论内容是否 溢出,都会显示滚动条<br>auto则会根据具体情况来添加或者不添加</li>
+<li>overflow值为auto或者hidden时,父元素成为了一个BFC空间</li>
+<li>负边距三栏布局 排列顺序为 中间栏,左边栏 ,右边栏 （SEO）<br>中间栏两层嵌套，外层浮动，中间内容，左右足够margin<br>俩侧边定款左浮动<br>左栏 margin-left -100%（整个页面宽度的负数 让其浮上去）<br>右边栏 margin-left -自身宽度（为了浮上去）</li>
+<li>左右浮动三栏布局 左右中，左左浮动 右右浮动 中间剧中</li>
+<li>圣杯布局 中 左 右 原理与负边距三兰类似<br>父元素的左右设置padding(需要大于等于侧边栏定宽)</li>
+<li>双飞翼 搞的是margin</li>
+<li><p>中间栏想要给左边的left和右边right都让出一定空间<br>只有两种方式<br>一种是padding：0 220px;<br>或者是margin：0 220px;</p>
+<p>这两条路线，<br>如果选择用padding给两侧留出空间，那就是圣杯<br>如果用margin的方式，最后的结果就是双飞翼</p>
+<p>这两种布局作为主要内容的中间栏放在前面,优先渲染显示<br>这两种布局中,三栏都必须都放置在一个BFC空间中,不然因为浮动元素高度塌陷,会影响到header footer 的位置  </p>
+</li>
+<li></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://panda-hjn.github.io/2016/09/22/Ajax/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1668,7 +1822,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1678,7 +1832,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
